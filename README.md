@@ -5,8 +5,14 @@ The Backtest & Optimization UI is a desktop application built with Tkinter that 
 
 ## UI Walkthrough
 The interface is organized into two primary tabs:
-- **Backtest tab** – Presents strategy inputs on the left (dataset selection, capital configuration, parameter overrides) and an equity chart with performance statistics on the right so you can review results immediately after execution.
+- **Backtest tab** – Presents strategy inputs on the left (dataset selection, capital configuration, parameter overrides) and an equity chart with performance statistics on the right so you can review results immediately after execution. In addition to a Monte Carlo simulation to provide VaR, and CVaR risk metrics.
+
+<img width="1913" height="1023" alt="Screenshot 2025-10-06 181324" src="https://github.com/user-attachments/assets/eba412d0-a6bf-4e7c-a7bc-36d6c26f3c7e" />
+
 - **Optimization tab** – Mirrors the configuration controls while layering in progress indicators, best-run summaries, and a table of tested parameter combinations to help compare outcomes side-by-side.
+
+<img width="1891" height="993" alt="Screenshot 2025-10-06 181438" src="https://github.com/user-attachments/assets/049180d3-590e-4937-97dd-333e3527bad9" />
+  
 
 ## Current Capabilities
 - **Data management** – Load market data from CSV files using either split date/time columns or unified datetime columns. The default datasets that ship with the project are available in the [`data/`](data/) directory for quick experimentation. Each CSV follows a tabular schema such as `Date,Timestamp,Open,High,Low,Close,Volume` (e.g., `20230922,10:00:00,14841.9,14858.4,14825.1,14835.9,1755`), making it straightforward to swap in alternative market histories that respect the same column order. The [`data/util/`](data/util/) helpers (`Convert_MT5_to_CSV.py` and `tz_convert_prices.py`) streamline converting MT5 exports and shifting datasets between timezones so they align with this schema.
@@ -17,6 +23,9 @@ The interface is organized into two primary tabs:
 
 ## Validation
 The backtest engine has been validated against TradingView using a moving-average crossover strategy. Matching the strategy’s optimized parameters between platforms produced near-identical equity curves and trade statistics, demonstrating parity between the two environments.
+
+<img width="1640" height="470" alt="Screenshot 2025-10-06 182113" src="https://github.com/user-attachments/assets/2b062271-55b8-4f89-9f4d-8553539fec01" />
+
 
 ## Roadmap
 Future iterations will extend the platform with:
