@@ -22,7 +22,7 @@ The interface is organized into two primary tabs:
 - **Parameter optimization** – Launch grid search experiments that iterate over user-defined parameter ranges, track progress, and highlight the best-performing configuration using a composite objective.
 
 ## Validation
-The backtest engine has been validated against TradingView using a moving-average crossover strategy. Matching the strategy’s optimized parameters between platforms produced near-identical equity curves and trade statistics, demonstrating parity between the two environments.
+The backtest engine has been validated against TradingView using a moving-average crossover strategy. Matching the strategy’s optimized parameters between platforms produced near-identical equity curves and trade statistics, demonstrating parity between the two environments. The following image of the equity curve is the same equity curve seen in our optimization tab. Slight differences in metrics can be attributed to data variance.
 
 <img width="1640" height="470" alt="Screenshot 2025-10-06 182113" src="https://github.com/user-attachments/assets/2b062271-55b8-4f89-9f4d-8553539fec01" />
 
