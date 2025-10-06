@@ -21,7 +21,7 @@ from backtest_engine import EngineConfig, run_backtest as run_engine
 from plot_equity import plot_equity_tradenum
 from monte_carlo import MonteCarloResult, monte_carlo_bootstrap_equity
 from run_backtest import load_strategy, DEFAULT_OUTPUT_DIR
-from strategy_base import Strategy
+from strategies.strategy_base import Strategy
 
 from optimization_engine import (
     OptimizationEngine,
@@ -44,7 +44,7 @@ LEGEND_EDGE = "#333333"
 class BacktestUI(tk.Tk):
     def __init__(self) -> None:
         super().__init__()
-        self.title("QuantFarming Backtest UI")
+        self.title("Backtest & Optimization UI")
         self.geometry("720x720")
         self._running = False
         self.strategy_param_vars: Dict[str, tuple[tk.Variable, Any]] = {}
@@ -187,7 +187,7 @@ class BacktestUI(tk.Tk):
         strat_frame = ttk.LabelFrame(parent, text="Strategy")
         strat_frame.pack(fill="x", padx=4, pady=4)
 
-        self.strategy_var = tk.StringVar(value="strategies.quantfarming_strategy:QuantFarmingStrategy")
+        self.strategy_var = tk.StringVar(value="strategies.ma_crossover:MACrossover")
         self.strategies = sorted(self._discover_strategies())
         ttk.Label(strat_frame, text="Strategy path").grid(row=0, column=0, sticky="w")
         ttk.Combobox(strat_frame, textvariable=self.strategy_var, values=self.strategies, width=50, state="readonly").grid(row=0, column=1, sticky="we")
